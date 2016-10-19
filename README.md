@@ -1,5 +1,7 @@
 # ember-parse-lib
 
+[![NPM](https://nodei.co/npm/ember-parse-lib.png?downloads=true&stars=true)](https://nodei.co/npm/ember-parse-lib/)
+
 An Ember addon to interact with Parse datastore.   
 This supports Ember API **v2.x** and above (built using Ember v2.8)   
 Also we have full support for custom Parse URLs including _[back4app](http://back4app.com)_ or _[sashido](http://sashido.io)_
