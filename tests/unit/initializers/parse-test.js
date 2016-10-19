@@ -17,6 +17,6 @@ module('Unit | Initializer | parse', {
 test('it works', function(assert) {
   ParseInitializer.initialize(application);
 
-  // you would normally confirm the results of the initializer here
+  // you would normally confirm the results of the ParseInitializer here
   assert.ok(true);
 });
