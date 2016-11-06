@@ -1,0 +1,16 @@
+<button {{action "refreshFruits"}}>Refresh</button>
+<button {{action "findOne"}}>Find One</button>
+
+<ul>
+    {{#each fruits as |fruit|}}
+      <li>
+          <p>
+              Name : {{fruit.name}} <br>
+              Colour : {{fruit.colour}} <br>
+              Taste : {{fruit.taste}} <br>
+          </p>
+      </li>
+    {{/each}}
+</ul>
+
+{{outlet}}

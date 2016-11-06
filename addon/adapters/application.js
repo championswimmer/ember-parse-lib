@@ -10,8 +10,19 @@ export default DS.Adapter.extend({
   },
 
   findRecord:  function (store, type, id, snapshot)  {
+
+    let parseClass = type.parseClass || type.modelName;
+    let query = new Parse.Query(Parse.Object.extend(parseClass));
+
     return new Promise(function (resolve, reject) {
-      let parseClass = type.modelName;
+      query.get(id, {
+        success: function (obj) {
+          resolve(obj);
+        },
+        error: function(obj, err) {
+          reject(obj,err);
+        }
+      });
 
     });
   },
@@ -49,8 +60,18 @@ export default DS.Adapter.extend({
     });
   },
   findAll: function (store, type, sinceToken)  {
-    let parseClass = type.modelName;
+    let parseClass = type.parseClass || type.modelName;
+    let query = new Parse.Query(Parse.Object.extend(parseClass));
+    //query.whereGreaterThan('modified-at', sinceToken);
     return new Promise(function (resolve, reject) {
+      query.find({
+        success: function (objArr) {
+          resolve(objArr);
+        },
+        error: function(result, err) {
+          reject(result,err);
+        }
+      });
 
     });
   },
