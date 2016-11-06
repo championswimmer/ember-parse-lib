@@ -86,6 +86,27 @@ this.store.createRecord('fruit', {
   console.log('Saved object with key ' + savedObj.id);
 })
 ```
+### Fetching Data 
+
+To find all records in a class
+
+```javascript
+this.store.findAll('fruits').then(function (fruits) {
+    console.log(fruits);
+    //Eat them fruits here ;)
+  });
+```
+
+To find a particular entity by given id
+
+```javascript
+    this.store.findRecord('fruits', '2D7dKQbCGZ').then(function(fruit) {
+      console.log(fruit);
+    });
+
+```
+Here we are fetching fruit with id = 2D7dKQbCGZ.
+
 ## Contribution
 
 Please read up on Ember's [extending guidelines](https://ember-cli.com/extending/) to get an idea of how
