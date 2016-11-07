@@ -5,9 +5,11 @@
     {{#each fruits as |fruit|}}
       <li>
           <p>
+              ID : {{fruit.id}} <br>
               Name : {{fruit.name}} <br>
               Colour : {{fruit.colour}} <br>
               Taste : {{fruit.taste}} <br>
+              <button {{action "deleteFruit" fruit}}>Delete</button>
           </p>
       </li>
     {{/each}}

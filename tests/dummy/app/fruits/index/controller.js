@@ -13,6 +13,12 @@ export default Ember.Controller.extend({
       this.store.findRecord('fruits', '2D7dKQbCGZ').then(function(fruit) {
         console.log(fruit);
       });
+    },
+    deleteFruit(fruit) {
+      this.store.findRecord('fruits', fruit.id, { backgroundReload: false }).then(function(froot) {
+        froot.destroyRecord();
+      }.bind(this));
+
     }
   }
 });
