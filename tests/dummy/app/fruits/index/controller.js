@@ -19,6 +19,12 @@ export default Ember.Controller.extend({
         froot.destroyRecord();
       }.bind(this));
 
+    },
+    removeTaste(fruit) {
+      this.store.findRecord('fruits', fruit.id, {backgroundReload: false}).then(function(froot) {
+        froot.set("taste", undefined);
+        froot.save();
+      });
     }
   }
 });

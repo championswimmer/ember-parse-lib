@@ -5,15 +5,6 @@ const Promise = Ember.RSVP.Promise;
 
 export default DS.Adapter.extend({
 
-  serialize: function (snapshot, adapterOptions)  {
-    let object = snapshot.attributes();
-    if (adapterOptions && adapterOptions.includeId) {
-      object.id = snapshot.id;
-      object.objectId = snapshot.id;
-    }
-    return object;
-  },
-
   findRecord:  function (store, type, id, snapshot)  {
 
     let parseClass = type.parseClass || type.modelName;
@@ -48,9 +39,16 @@ export default DS.Adapter.extend({
   },
   updateRecord: function (store, type, snapshot)  {
     let parseClass = type.parseClass || type.modelName;
-    let data = this.serialize(snapshot, { includeId: true });
+    let data = this.serialize(snapshot, { includeId: true, prune: true });
     data.className = parseClass;
     let parseObject = Parse.Object.fromJSON(data);
+    //Explicitly unset null and undefined keys
+    Object.keys(data).map((key) => {
+      if (!data[key]) {
+        parseObject.unset(key);
+      }
+    });
+    console.log(parseObject);
 
     return new Promise(function (resolve, reject) {
       parseObject.save(null, {

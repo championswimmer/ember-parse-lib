@@ -8,7 +8,7 @@
               ID : {{fruit.id}} <br>
               Name : {{fruit.name}} <br>
               Colour : {{fruit.colour}} <br>
-              Taste : {{fruit.taste}} <br>
+              Taste : {{fruit.taste}} <button {{action "removeTaste" fruit}}>X</button> <br>
               <button {{action "deleteFruit" fruit}}>Delete</button>
           </p>
       </li>

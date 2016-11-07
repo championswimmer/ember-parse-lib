@@ -1,6 +1,7 @@
 # ember-parse-lib
 
 [![NPM](https://nodei.co/npm/ember-parse-lib.png?downloads=true&stars=true)](https://nodei.co/npm/ember-parse-lib/)
+[![Ember Observer Score](https://emberobserver.com/badges/ember-parse-lib.svg)](https://emberobserver.com/addons/ember-parse-lib)
 
 An Ember addon to interact with Parse datastore.   
 This supports Ember API **v2.x** and above (built using Ember v2.8)   
