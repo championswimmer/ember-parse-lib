@@ -13,7 +13,7 @@ export default DS.JSONSerializer.extend({
 
     return this._super(store, primaryModelClass, parsePayloadToModel(payload));
   },
-  normalizeFindAllResponse(store, primaryModelClass, payload, id, requestType) {
+  normalizeArrayResponse(store, primaryModelClass, payload, id, requestType) {
     payload.forEach((item, index, arr) => {
       arr[index] = parsePayloadToModel(item);
     });
