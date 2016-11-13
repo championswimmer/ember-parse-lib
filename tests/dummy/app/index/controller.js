@@ -12,6 +12,10 @@ export default Ember.Controller.extend({
       q.save().then(function(q) {
         console.log(q);
       });
+    },
+    showUserData() {
+      let user = this.store.modelFor('parseuser');
+      console.log(user.getThisUser());
     }
   }
 });

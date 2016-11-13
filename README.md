@@ -31,8 +31,8 @@ var ENV = {
       // when it is created
       Parse: {
         url: 'https://parseapi.back4app.com',
-        appId: 'yE4lpdHmxauOKRs4O4cRopxBr9r8QyOwgTURlrV7',
-        jsApiId: 'G9RZjIvyOOJmAMZKMaadN5pxkPcMffDNHY56MB1A'
+        appId: 'G9h2udnUz5z2oVT7OAFNNSkcQKkORl6Sb2bePZ7B',
+        jsApiId: 'MaVeTMJ0uubSRBADREgXy9UY98uPcxDRMEurTiyf'
       }
     }
   };
