@@ -108,6 +108,32 @@ To find a particular entity by given id
 ```
 Here we are fetching fruit with id = 2D7dKQbCGZ.
 
+### Signing up user
+Sign up a user with username and password like this - 
+
+```javascript
+      let user = this.store.createRecord("parseuser");
+      user.username = "username";
+      user.password = "password";
+      user.signUp().then((obj) => {
+        console.log("Signed up user, and id of new user = " + obj.id);
+      });
+```
+
+### Logging in a user
+Log in a user with username and password, or existing user object
+```javascript
+      let user = this.store.createRecord("parseuser");
+      user.username = username;
+      user.password = password;
+      user.logIn().then((obj) => {
+        console.log("Parse object of user = " + obj);
+      });
+      obj.set("moredata", "somevalue");
+      obj.save();
+
+```
+
 ## Contribution
 
 Please read up on Ember's [extending guidelines](https://ember-cli.com/extending/) to get an idea of how
