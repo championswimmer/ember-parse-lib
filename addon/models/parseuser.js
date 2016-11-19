@@ -27,7 +27,7 @@ const ParseUser =  DS.Model.extend({
       Parse.User.logIn(this.username, this.password, {
         success: function (user) {
           resolve(user);
-        },
+        }.bind(this),
         error: function (user, error) {
           reject(user,error);
         }

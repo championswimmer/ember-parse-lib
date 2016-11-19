@@ -2,5 +2,12 @@
 <br>
 {{input type="password" value=password placeholder="password"}}
 <br>
-<button {{action "doLogin" username password}}>Signup</button>
+<button {{action "doLogin" username password}}>Login</button>
+<button {{action "doSignup" username password}}>Signup</button>
+
+<br><br>
+
+<button {{action "findUser" username}}>Find User</button>
+<button {{action "allUsers"}}>All Users</button>
+
 {{outlet}}

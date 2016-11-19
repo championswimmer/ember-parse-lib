@@ -108,6 +108,55 @@ To find a particular entity by given id
 ```
 Here we are fetching fruit with id = 2D7dKQbCGZ.
 
+#### Queries 
+**ember-parse-lib** supports query constraints too. 
+For example to find fruits in ascending order of their colour - 
+```javascript
+      this.store.query('fruits', {ascending: "colour"}).then(function (fruits) {
+        console.log(fruits);
+      });
+
+```
+
+And to find a particular username
+```javascript
+      this.store.query('parseuser', {equalTo: {'username': username}}).then(function(users) {
+        console.log(users);
+      });
+
+```
+
+An example structure of your query filter object is this - 
+```javascript
+{
+        equalTo: {
+          city: "Delhi",
+          country: "India"
+        },
+        notEqualTo: {
+          gender: "male"
+        },
+        lessThan: {
+          age: 40,
+        },
+        lessThanOrEqualTo: {
+          hasCars: 4
+        },
+        greaterThan: {
+          age: 20
+        },
+        greaterThanOrEqualTo: {
+          kids: 1
+        },
+        ascending : ["age", "name"],
+        descending: "city"
+      }
+```
+This would find out people in Delhi, India, who are not males,
+between the age of 20 and 40, having less than 4 cars and more than
+1 kid. It'll show up in ascending order of age, and within that, in order 
+of name. Ties will be broken in descending order of city.
+
 ### Signing up user
 Sign up a user with username and password like this - 
 

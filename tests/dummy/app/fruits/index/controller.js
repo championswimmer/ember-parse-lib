@@ -4,7 +4,7 @@ export default Ember.Controller.extend({
   actions: {
     refreshFruits() {
 
-      this.store.findAll('fruits').then(function (fruits) {
+      this.store.query('fruits', {ascending: "colour"}).then(function (fruits) {
         console.log(fruits);
         this.set("fruits", fruits);
       }.bind(this));

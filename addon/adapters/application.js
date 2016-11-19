@@ -100,7 +100,52 @@ export default DS.Adapter.extend({
     let parseClass = type.parseClass || type.modelName;
     let parseQuery = new Parse.Query(Parse.Object.extend(parseClass));
 
-    //attach query params here
+    if (queryParams.equalTo) {
+      for (let col in queryParams.equalTo) {
+        parseQuery.equalTo(col, queryParams.equalTo[col]);
+      }
+    }
+    if (queryParams.notEqualTo) {
+      for (let col in queryParams.notEqualTo) {
+        parseQuery.equalTo(col, queryParams.notEqualTo[col]);
+      }
+    }
+    if (queryParams.lessThan) {
+      for (let col in queryParams.lessThan) {
+        parseQuery.equalTo(col, queryParams.lessThan[col]);
+      }
+    }
+    if (queryParams.greaterThan) {
+      for (let col in queryParams.greaterThan) {
+        parseQuery.equalTo(col, queryParams.greaterThan[col]);
+      }
+    }
+    if (queryParams.lessThanOrEqualTo) {
+      for (let col in queryParams.lessThanOrEqualTo) {
+        parseQuery.equalTo(col, queryParams.lessThanOrEqualTo[col]);
+      }
+    }
+    if (queryParams.greaterThanOrEqualTo) {
+      for (let col in queryParams.greaterThanOrEqualTo) {
+        parseQuery.equalTo(col, queryParams.greaterThanOrEqualTo[col]);
+      }
+    }
+    if (queryParams.ascending) {
+      if (queryParams.ascending instanceof Array) {
+        parseQuery.ascending(...queryParams.ascending);
+      } else {
+        parseQuery.ascending(queryParams.ascending);
+      }
+    }
+    if (queryParams.descending) {
+      if (queryParams.descending instanceof Array) {
+        parseQuery.descending(...queryParams.descending);
+      } else {
+        parseQuery.descending(queryParams.descending);
+      }
+    }
+
+    //attach more query params here
 
     return new Promise(function (resolve, reject) {
       parseQuery.find({

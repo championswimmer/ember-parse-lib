@@ -1,5 +1,8 @@
 # Changelog
 
+### 0.1.1
+- Add query constraints (equalTo, notEqualTo etc)
+
 ### 0.1.0
 - Add user support (login + singup + logout)
 
